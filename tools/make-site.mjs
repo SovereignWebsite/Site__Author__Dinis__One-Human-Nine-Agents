@@ -16,7 +16,7 @@ const w = (p, s) => { mkdirSync(join(root, p, '..'), { recursive: true }); write
 
 const DESIGNS = [
   { n: 1, slug: 'ledger', name: 'Ledger', idea: 'Numbers first: three big figures, each linked to its source, then the editions as a table.', best: 'Readers who want proof before a pitch.', weak: 'Quiet; the book itself has no visual presence.', dark: 'no' },
-  { n: 2, slug: 'poster', name: 'Poster', idea: 'Dark and loud: the title set huge in the cover colours, with the two ways to read the book as big buttons.', best: 'First impression and sharing.', weak: 'Less room for detail; the small print sits low.', dark: 'yes' },
+  { n: 2, slug: 'poster', name: 'Poster', idea: 'Dark and loud: the title set huge in the cover colours, with the two ways to read the book as big buttons.', best: 'First impression and sharing.', weak: 'Less room for detail; the small print sits low.', dark: 'yes, in light mode too' },
   { n: 3, slug: 'day', name: 'The Day', idea: 'A vertical timeline from the first commit at 00:16 to the talk at 19:00, with the numbers hung on it.', best: 'Telling the story of the nineteen hours.', weak: 'Readers who want the editions have to scroll past the story.', dark: 'no' },
   { n: 4, slug: 'editions', name: 'Editions', idea: 'Pick a length first: bars sized by page count for the 3, 10, 30, 70 and 150 page editions.', best: 'Someone deciding how much to read today.', weak: 'The story and numbers come second.', dark: 'no' },
   { n: 5, slug: 'questions', name: 'Questions', idea: 'Five plain questions, each a fold-out answer: who is it for, what can I do after, what is in it, can I trust the numbers, where do I read it.', best: 'Sceptical first-time visitors on a phone.', weak: 'Answers are hidden until opened.', dark: 'no' },
@@ -164,10 +164,13 @@ ${body}
 const numberTiles = (cls = 'nums') => `<ul class="${cls}">${C.numbers.map((n) => `<li><span class="big">${n.v}</span><span class="lab">${esc(n.label)}</span><span class="src">Source: ${ext(n.href, n.src)}</span></li>`).join('')}</ul>`;
 const afterList = () => `<ol class="after">${C.after.map((a) => `<li>${a}</li>`).join('')}</ol><p class="note">${C.afterNote} Source: ${ext(LEAN, 'Leanpub')}.</p>`;
 const whoBlock = () => `<p class="who">&ldquo;${C.whoQuote}&rdquo; <span class="src">Leanpub, the book's page: ${ext(LEAN, 'leanpub.com')}</span></p>`;
-const storeCards = () => `<ul class="stores">${C.stores.map((s) => `<li><h3>${s.name}</h3><p>${s.text}</p><a class="btn" href="${s.href}">${s.link}</a></li>`).join('')}</ul>`;
+const storeCards = () => `<ul class="stores">${C.stores.map((s) => `<li><p class="sname"><strong>${s.name}</strong></p><p>${s.text}</p><a class="btn" href="${s.href}">${s.link}</a></li>`).join('')}</ul>`;
 const editionRows = () => C.editions.map((e) => `<tr><th scope="row">${e.name}</th><td>${e.text}</td><td><a href="${e.href}">${e.link}</a></td></tr>`).join('');
 const editionTable = () => `<div class="table-wrap" tabindex="0" role="region" aria-label="Editions"><table><thead><tr><th scope="col">Edition</th><th scope="col">What it is</th><th scope="col">Where</th></tr></thead><tbody>${editionRows()}</tbody></table></div><p class="note">${C.editionsNote}</p>`;
 const mark = (t) => `<div class="mark">${t}</div>`;
+const COVER_ALT = 'Cover of the book: Gen ZX Founders. One Human, Nine Agents, Nineteen Hours, by Dinis Cruz. RC2, November 2026.';
+const cover = () => `<figure class="cover"><img src="/assets/cover.svg" width="96" height="125" alt="${COVER_ALT}"><figcaption>The RC2 cover, from ${ext(BOOK + '/', 'the book\'s own site')}.</figcaption></figure>`;
+const readit = () => `<p class="readit">Read it: ${ext(LEAN, 'Leanpub')}, or the ${ext(BOOK + '/rc2/one-human-nine-agents-rc2-full-draft.pdf', 'free RC2 PDF')}.</p>`;
 const SUB = 'How a factory of AI agents built a presentation in a day, and how to build yours.';
 
 // ---------- the five home pages ----------
@@ -175,6 +178,8 @@ const homes = {
   1: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
 <p class="sub">${SUB}</p>
+${readit()}
+${cover()}
 <p>${C.lead}</p>
 <p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a> <a class="btn alt" href="${BOOK}/rc2/one-human-nine-agents-rc2-full-draft.pdf">Read RC2 (PDF)</a></p>
 <h2 id="numbers">The day in three numbers</h2>
@@ -194,7 +199,10 @@ ${storeCards()}
 ${mark('Gen ZX Founders · a book by Dinis Cruz')}
 <h1><span>One Human,</span> <span>Nine Agents,</span> <span>Nineteen Hours</span></h1>
 <p class="sub">${SUB}</p>
+${readit()}
+${cover()}
 <p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a> <a class="btn alt" href="${BOOK}/rc2/one-human-nine-agents-rc2-full-draft.pdf">Read RC2, free (PDF)</a></p>
+<p class="note">The four stripes are the cover's own colours.</p>
 <section class="band" aria-labelledby="b1"><h2 id="b1">The idea</h2><p>${C.lead}</p>${whoBlock()}</section>
 <section class="band" aria-labelledby="numbers"><h2 id="numbers">Nine. 18 h 44 min. 814.</h2>${numberTiles('nums')}</section>
 <section class="band" aria-labelledby="b3"><h2 id="b3">Do it yourself</h2>${afterList()}</section>
@@ -203,6 +211,8 @@ ${mark('Gen ZX Founders · a book by Dinis Cruz')}
   3: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
 <p class="sub">${SUB}</p>
+${readit()}
+${cover()}
 <h2 id="numbers">29 October 2026, in order</h2>
 <ol class="timeline">
 <li><time>00:16</time><div><h3>The first commit</h3><p>Nine agents staffed on the day; a tenth, security, was proposed and never staffed (C011). <span class="src">Source: ${ext(BOOK + '/', 'Book site, home page')}</span></p></div></li>
@@ -210,7 +220,9 @@ ${mark('Gen ZX Founders · a book by Dinis Cruz')}
 <li><time>18:46</time><div><h3>The last change</h3><p>814 commits by now: 603 by Claude, 210 release commits by GitHub Actions, 1 by the editor (C004). The last change landed at 18:46. <span class="src">Source: ${ext(BOOK + '/', 'Home page')} and ${ext(BOOK + '/plan/index.html', 'plan')}</span></p></div></li>
 <li><time>19:00</time><div><h3>The talk begins</h3><p>18 h 44 min after the first commit, the nineteen hours of the title (C010, C100). <span class="src">Source: ${ext(BOOK + '/', 'Book site, home page')}</span></p></div></li>
 </ol>
-<p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a> <a class="btn alt" href="#editions">All editions</a></p>
+<h2 id="ladder">Then pick how much to read</h2>
+<ul class="bars">${C.editions.map((e) => `<li><a href="${e.href}"><span class="bar b${e.pages}"><span class="pg">${e.pages}</span></span><span class="txt"><strong>${e.name}</strong> ${e.text} <span class="go">${e.link}</span></span></a></li>`).join('')}</ul>
+<p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a></p>
 <h2>Who it is for</h2>
 <p>${C.lead}</p>
 ${whoBlock()}
@@ -223,6 +235,8 @@ ${storeCards()}`,
   4: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
 <p class="sub">${SUB}</p>
+${readit()}
+${cover()}
 <h2 id="editions">How much do you want to read?</h2>
 <ul class="bars">${C.editions.map((e) => `<li><a href="${e.href}"><span class="bar b${e.pages}"><span class="pg">${e.pages}</span></span><span class="txt"><strong>${e.name}</strong> ${e.text} <span class="go">${e.link}</span></span></a></li>`).join('')}</ul>
 <p class="note">${C.editionsNote} Bar length follows the page count.</p>
@@ -238,12 +252,14 @@ ${afterList()}`,
   5: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
 <p class="sub">${SUB}</p>
+${readit()}
+${cover()}
 <p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a></p>
 <div class="qa">
-<details open><summary>Who is it for?</summary><div>${whoBlock()}<p>${C.lead}</p></div></details>
+<details id="editions" open><summary>Where do I read it, and how long is it?</summary><div>${editionTable()}${storeCards()}</div></details>
+<details><summary>Who is it for?</summary><div>${whoBlock()}<p>${C.lead}</p></div></details>
 <details><summary>What can I do after reading it?</summary><div>${afterList()}</div></details>
 <details id="numbers"><summary>Can I trust the numbers?</summary><div><p>Each one is the book's own, from its researcher's register, checked against the talk's record. Each links to where the book states it.</p>${numberTiles()}<p>Where the book's own pages differ, we say so on <a href="${dir(DESIGNS[4])}from-the-record/">From the record</a>.</p></div></details>
-<details id="editions"><summary>Where do I read it, and how long is it?</summary><div>${editionTable()}${storeCards()}</div></details>
 <details><summary>Is the whole book on this site?</summary><div><p>No. This site introduces the book and points to the book's own site and to Leanpub for the text. It copies no chapters.</p></div></details>
 </div>`,
 };

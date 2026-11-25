@@ -8,7 +8,7 @@ import { readFileSync, existsSync, statSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const root = new URL('../site/', import.meta.url).pathname;
-const TYPES = { '.html': 'text/html', '.css': 'text/css', '.jpg': 'image/jpeg' };
+const TYPES = { '.html': 'text/html', '.css': 'text/css', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml' };
 const srv = createServer((q, r) => { let f = join(root, decodeURI(q.url.split('?')[0])); if (existsSync(f) && statSync(f).isDirectory()) f = join(f, 'index.html'); if (!existsSync(f)) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'content-type': TYPES[f.slice(f.lastIndexOf('.'))] || 'application/octet-stream' }); r.end(readFileSync(f)); });
 await new Promise((ok) => srv.listen(0, ok)); const base = `http://127.0.0.1:${srv.address().port}`;
 const b = await chromium.launch(); mkdirSync(join(root, 'assets/designs'), { recursive: true });

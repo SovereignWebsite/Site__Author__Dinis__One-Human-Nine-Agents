@@ -53,3 +53,10 @@ footer{max-width:var(--w,46rem);margin:0 auto;padding:1.5rem 1rem 2rem;border-to
 .top{padding-top:1.2rem}
 .previewbar{font-size:.8rem}
 main{padding-top:1.2rem}
+.own{flex-wrap:wrap;overflow:visible;white-space:normal;font-size:.9rem;gap:.15rem .9rem}
+.cover{margin:1rem 0}.cover img{display:block;width:160px;height:208px;max-width:100%;border:1px solid var(--line)}.cover figcaption{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+.readit{font-weight:600}
+.sname{margin:0 0 .2rem;font-size:1.1rem}
+.cover{float:right;width:96px;margin:.2rem 0 .6rem 1rem}.cover img{width:96px;height:125px}.cover figcaption{font-size:.7rem}
+@media (min-width:44rem){.cover{width:160px}.cover img{width:160px;height:208px}}
+h2,.timeline,.bars,.qa,.table-wrap,.nums{clear:both}
