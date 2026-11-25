@@ -1,6 +1,14 @@
 {
   "agent": "one-human-nine-agents.a@SovereignWebsite.dinis",
   "role": "keeper",
+  "state": "handing over",
+  "waiting_on": "Dinis: pick a design (both reviewers recommend 3, The Day); confirm the Amazon page is this book. Then the cl-4 session takes over.",
+  "updated": "2026-11-25T18:55Z",
+  "handover": {
+    "to": "cl-4.one-human-nine-agents@SovereignWebsite.dinis (account D)",
+    "ordered_by": "cl-1.maestro brief (handover/2026-11-25-moves.md), confirmed to me by sites.a; I did not hear it from Dinis in my own session",
+    "wakes": "none held; nothing to disable"
+  },
   "site": "one-human-nine-agents.dinis.author.sovereignweb.site",
   "repository": "SovereignWebsite/Site__Author__Dinis__One-Human-Nine-Agents",
   "branch": "dev",
@@ -8,6 +16,8 @@
   "reports_to": "sites.a (session_018yvwtQ7z3PUt9L5gpZCNzt)",
   "design_reviewer": "a.design (session_018yvwtMKHMBUBwQFbXVLVzn)",
   "session": "https://claude.ai/code/session_018yvwtNfpegfLMBhUK1FCxb",
-  "signing_key": "site/keys/one-human-nine-agents.a.json",
+  "signing_key": "site/keys/one-human-nine-agents.a.json (public; signing fingerprint sha256:3a8a3fd9f7b33241; session key, ends with this session)",
+  "keys_held": "no vault or lane keys. Only the session signing key, whose private half is in ~/.sw-secret of this container and was never printed or committed.",
+  "repositories_pushed_to": ["SovereignWebsite/Site__Author__Dinis__One-Human-Nine-Agents (dev only)"],
   "started": "2026-11-25T01:44Z"
 }
