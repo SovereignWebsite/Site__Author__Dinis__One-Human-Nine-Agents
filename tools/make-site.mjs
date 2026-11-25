@@ -177,9 +177,9 @@ const SUB = 'How a factory of AI agents built a presentation in a day, and how t
 const homes = {
   1: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
+${cover()}
 <p class="sub">${SUB}</p>
 ${readit()}
-${cover()}
 <p>${C.lead}</p>
 <p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a> <a class="btn alt" href="${BOOK}/rc2/one-human-nine-agents-rc2-full-draft.pdf">Read RC2 (PDF)</a></p>
 <h2 id="numbers">The day in three numbers</h2>
@@ -198,9 +198,9 @@ ${storeCards()}
   2: () => `<div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 ${mark('Gen ZX Founders · a book by Dinis Cruz')}
 <h1><span>One Human,</span> <span>Nine Agents,</span> <span>Nineteen Hours</span></h1>
+${cover()}
 <p class="sub">${SUB}</p>
 ${readit()}
-${cover()}
 <p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a> <a class="btn alt" href="${BOOK}/rc2/one-human-nine-agents-rc2-full-draft.pdf">Read RC2, free (PDF)</a></p>
 <p class="note">The four stripes are the cover's own colours.</p>
 <section class="band" aria-labelledby="b1"><h2 id="b1">The idea</h2><p>${C.lead}</p>${whoBlock()}</section>
@@ -210,9 +210,9 @@ ${cover()}
 
   3: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
+${cover()}
 <p class="sub">${SUB}</p>
 ${readit()}
-${cover()}
 <h2 id="numbers">29 October 2026, in order</h2>
 <ol class="timeline">
 <li><time>00:16</time><div><h3>The first commit</h3><p>Nine agents staffed on the day; a tenth, security, was proposed and never staffed (C011). <span class="src">Source: ${ext(BOOK + '/', 'Book site, home page')}</span></p></div></li>
@@ -234,9 +234,9 @@ ${storeCards()}`,
 
   4: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
+${cover()}
 <p class="sub">${SUB}</p>
 ${readit()}
-${cover()}
 <h2 id="editions">How much do you want to read?</h2>
 <ul class="bars">${C.editions.map((e) => `<li><a href="${e.href}"><span class="bar b${e.pages}"><span class="pg">${e.pages}</span></span><span class="txt"><strong>${e.name}</strong> ${e.text} <span class="go">${e.link}</span></span></a></li>`).join('')}</ul>
 <p class="note">${C.editionsNote} Bar length follows the page count.</p>
@@ -251,9 +251,9 @@ ${afterList()}`,
 
   5: () => `${mark('A book by Dinis Cruz · Gen ZX Founders')}
 <h1>${TITLE}</h1>
+${cover()}
 <p class="sub">${SUB}</p>
 ${readit()}
-${cover()}
 <p class="cta"><a class="btn" href="${LEAN}">Get it on Leanpub</a></p>
 <div class="qa">
 <details id="editions" open><summary>Where do I read it, and how long is it?</summary><div>${editionTable()}${storeCards()}</div></details>
@@ -306,14 +306,14 @@ for (const d of DESIGNS) {
 <h2>The five in one table</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="The five designs compared"><table><thead><tr><th scope="col">Design</th><th scope="col">Its idea</th><th scope="col">Best for</th><th scope="col">Weakest at</th><th scope="col">Dark first</th></tr></thead><tbody>${rows}</tbody></table></div>
 <h2>Who recommends what</h2>
-<p>Not yet. The keeper's recommendation and the design reviewer's will go here, each with a link to its review, after the review rounds with a.design.</p>
+<ul><li><strong>Keeper (this site's agent): design 3, The Day.</strong> It tells the story of the nineteen hours, then puts the editions straight after, so a visitor sees why the book exists and how much of it to read.</li><li><strong>Design reviewer (a.design): design 3, The Day.</strong> Round 1 and round 2 both recommend it, with the editions ladder after the timeline and a Read it line under the subtitle. Reviews: <a href="https://design.agents.sovereignweb.site/factory/dinis-cruz/account-a/a.design/reviews/one-human-nine-agents-2026-11-25-round-1.html">round 1</a>, <a href="https://design.agents.sovereignweb.site/factory/dinis-cruz/account-a/a.design/reviews/one-human-nine-agents-2026-11-25-round-2.html">round 2</a>.</li></ul>
 <h2>The pick</h2>
 <p><strong>Not picked yet.</strong> The live site uses design 1 meanwhile. Nothing in the browser records a choice.</p>
 <h2>How to choose</h2>
 <ol><li>Does the first screen on a phone say what this book is?</li><li>Can you do the main thing, which is to find where to read it, without hunting?</li><li>Would the owner say "wow"?</li></ol>
 <p>Then say which number to keep.</p>
 <h2>Rounds</h2>
-<p>Round 1, ${TODAY}: five directions built by the keeper. Review with a.design to follow.</p>
+<ol><li><strong>Round 2, ${TODAY}.</strong> Reviewed by a.design (<a href="https://design.agents.sovereignweb.site/factory/dinis-cruz/account-a/a.design/reviews/one-human-nine-agents-2026-11-25-round-2.html">review</a>). All six round 1 findings verified fixed. One small item, the cover on phones, fixed after it. Recommends design 3.</li><li><strong>Round 1, ${TODAY}.</strong> Reviewed by a.design (<a href="https://design.agents.sovereignweb.site/factory/dinis-cruz/account-a/a.design/reviews/one-human-nine-agents-2026-11-25-round-1.html">review</a>). Found: Poster not dark in light mode, header links cut at 390 px, no cover shown, stripes close to a tech brand's palette (now captioned as the cover's colours), Questions should open on where to read. Recommends design 3.</li></ol>
 <h2>Earlier designs</h2>
 <p>None yet.</p>`;
   w('designs/index.html', shell({ n: 1, name: 'Ledger' }, { path: '/designs/', title: `Choose a design: ${TITLE}`, desc: 'Five designs for this site side by side, with who recommends what and how to pick.', preview: false, body }).replace(/<a class="name" href="\/">/, '<a class="name" href="/">'));
