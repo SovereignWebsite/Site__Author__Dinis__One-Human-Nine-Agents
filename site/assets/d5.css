@@ -1,0 +1,10 @@
+/* Design 5, Questions: five plain questions, each a fold-out answer. */
+:root{--bg:#fbfbfd;--fg:#1c1b22;--muted:#58566a;--accent:#5a3fc0;--line:#dcdae8;--w:40rem}
+@media (prefers-color-scheme:dark){:root{--bg:#131219;--fg:#ecebf4;--muted:#aeabc4;--accent:#b6a4ff;--line:#2d2b3b;--btn-fg:#131219}}
+.d5 .qa details{border:1px solid var(--line);border-radius:10px;margin:.7rem 0;background:rgba(127,127,127,.05)}
+.d5 .qa summary{cursor:pointer;padding:1rem;font-weight:700;font-size:1.1rem;min-height:44px}
+.d5 .qa details>div{padding:0 1rem 1rem}
+.d5 .big{font-size:1.9rem}
+.d5 .nums li{padding:.6rem 0;border-top:1px solid var(--line)}
+.d5 .top .name,.d5 .mark{display:none}
+.d5 h1{font-size:clamp(1.7rem,6vw,2.6rem)}

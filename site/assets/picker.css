@@ -1,0 +1,15 @@
+/* The "Choose a design" control, at the top of every page while the pick is open (a.design's standard).
+   Every thumbnail has its own width and height in the HTML, so a stale or missing stylesheet cannot blow it up. */
+.pickbar{--pk-bg:#f3f1ea;--pk-fg:#1d1d1b;--pk-line:#cfcbbd;--pk-acc:#2f6b4f;background:var(--pk-bg);color:var(--pk-fg);border-bottom:1px solid var(--pk-line);font:15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;position:relative;z-index:40}
+@media (prefers-color-scheme:dark){.pickbar{--pk-bg:#1d1e1b;--pk-fg:#ecebe6;--pk-line:#3a3b36;--pk-acc:#7fc3a0}}
+.picker summary{cursor:pointer;display:inline-block;padding:.65rem 1rem;min-height:44px;font-weight:600;color:var(--pk-fg)}
+.picker summary:focus-visible,.picker a:focus-visible{outline:3px solid var(--pk-acc);outline-offset:2px}
+.picker-panel{padding:0 1rem 1rem;max-height:80vh;overflow:auto}
+.picker-note{margin:.2rem 0 .8rem;color:inherit}
+.picker-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));gap:.6rem}
+.picker-cards a{display:flex;flex-direction:column;gap:.3rem;align-items:flex-start;min-height:44px;padding:.5rem;border:1px solid var(--pk-line);border-radius:8px;color:var(--pk-fg);text-decoration:none}
+.picker-cards a[aria-current="page"]{outline:2px solid var(--pk-acc)}
+.picker-cards img{width:78px;height:169px;border-radius:4px;border:1px solid var(--pk-line);background:#888}
+.picker-cards em{font-style:normal;font-size:.8rem;color:var(--pk-acc);font-weight:600}
+.picker-all{color:var(--pk-acc);font-weight:600;display:inline-block;min-height:44px;padding:.6rem 0}
+@media print{.pickbar{display:none}}

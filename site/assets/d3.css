@@ -1,0 +1,11 @@
+/* Design 3, The Day: a vertical timeline from 00:16 to 19:00. */
+:root{--bg:#f6f8fb;--fg:#14202e;--muted:#506072;--accent:#1d5fa8;--line:#c4cfdc;--w:42rem}
+@media (prefers-color-scheme:dark){:root{--bg:#0e141c;--fg:#e8eef6;--muted:#9fb0c3;--accent:#7db4f0;--line:#2a3a4d;--btn-fg:#0e141c}}
+.d3 .timeline{list-style:none;margin:1.5rem 0;padding:0 0 0 1rem;border-left:4px solid var(--accent)}
+.d3 .timeline li{position:relative;display:grid;grid-template-columns:4.6rem 1fr;gap:.2rem .8rem;padding:0 0 1.8rem .6rem}
+.d3 .timeline li::before{content:"";position:absolute;left:-1.65rem;top:.45rem;width:1rem;height:1rem;border-radius:50%;background:var(--bg);border:4px solid var(--accent)}
+.d3 .timeline time{font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;color:var(--accent)}
+.d3 .timeline p{margin:.2rem 0}
+.d3 .top .name{display:none}
+.d3 .sub{margin:.2rem 0}
+.d3 h1{font-size:clamp(1.7rem,6vw,2.6rem)}

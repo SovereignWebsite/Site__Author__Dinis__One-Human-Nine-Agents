@@ -1,0 +1,6 @@
+/* Design 1, Ledger: paper, a serif, figures first. */
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#d9d5c8;--body:Georgia,"Times New Roman",serif;--w:44rem}
+@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29;--btn-fg:#10130f}}
+.d1 h1,.d1 h2,.d1 h3,.d1 .big{font-family:Georgia,serif}
+.d1 .nums li{padding:1rem 0;border-top:3px double var(--line)}
+@media (min-width:44rem){.d1 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.d1 .nums li{border-top:3px double var(--line)}}

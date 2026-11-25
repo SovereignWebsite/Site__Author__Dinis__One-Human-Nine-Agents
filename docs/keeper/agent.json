@@ -1,0 +1,13 @@
+{
+  "agent": "one-human-nine-agents.a@SovereignWebsite.dinis",
+  "role": "keeper",
+  "site": "one-human-nine-agents.dinis.author.sovereignweb.site",
+  "repository": "SovereignWebsite/Site__Author__Dinis__One-Human-Nine-Agents",
+  "branch": "dev",
+  "operator": "Dinis Cruz",
+  "reports_to": "sites.a (session_018yvwtQ7z3PUt9L5gpZCNzt)",
+  "design_reviewer": "a.design (session_018yvwtMKHMBUBwQFbXVLVzn)",
+  "session": "https://claude.ai/code/session_018yvwtNfpegfLMBhUK1FCxb",
+  "signing_key": "site/keys/one-human-nine-agents.a.json",
+  "started": "2026-11-25T01:44Z"
+}

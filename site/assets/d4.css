@@ -1,0 +1,13 @@
+/* Design 4, Editions: pick a length; bar lengths follow page counts. */
+:root{--bg:#fffdf8;--fg:#221c14;--muted:#665c4e;--accent:#a8420f;--line:#e6dccb;--w:46rem}
+@media (prefers-color-scheme:dark){:root{--bg:#18140f;--fg:#f3ebdd;--muted:#baae9b;--accent:#f0a070;--line:#352d22;--btn-fg:#18140f}}
+.d4 .bars{list-style:none;margin:1rem 0;padding:0}
+.d4 .bars a{display:block;padding:.8rem 0;color:var(--fg);text-decoration:none;border-top:1px solid var(--line);min-height:44px}
+.d4 .bars a:hover .go{text-decoration:underline}
+.d4 .bar{display:block;height:2.2rem;background:var(--accent);border-radius:4px;margin-bottom:.4rem;min-width:3.2rem;color:var(--bg)}
+.d4 .pg{display:block;padding:.3rem .6rem;font-weight:800}
+.d4 .b3{width:6%}.d4 .b10{width:12%}.d4 .b30{width:30%}.d4 .b70{width:60%}.d4 .b150{width:100%}
+.d4 .go{color:var(--accent);font-weight:700}
+.d4 .nums li{padding:.8rem 0;border-top:1px solid var(--line)}
+.d4 .top .name,.d4 .sub{display:none}
+.d4 h1{font-size:clamp(1.4rem,5vw,2rem)}

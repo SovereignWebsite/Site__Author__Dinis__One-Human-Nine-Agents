@@ -1,0 +1,16 @@
+/* Design 2, Poster: dark first, the cover's four colours, a huge title. */
+:root{--bg:#15171c;--fg:#f2f2ee;--muted:#b9bdc4;--accent:#ffd24d;--line:#343845;--btn-fg:#15171c;--w:52rem;--c1:#3fae7a;--c2:#ffd24d;--c3:#4a8df0;--c4:#e8504f}
+@media (prefers-color-scheme:light){:root{--bg:#f7f5ef;--fg:#15171c;--muted:#4a4e57;--accent:#7a5a00;--line:#d6d2c5;--btn-fg:#fff;--c1:#1f7a52;--c4:#c0392b}}
+.d2 .stripes{display:flex;height:.6rem;margin:0 -1rem 1.2rem}
+.d2 .stripes i{flex:1}.d2 .stripes i:nth-child(1){background:var(--c1)}.d2 .stripes i:nth-child(2){background:var(--c2)}.d2 .stripes i:nth-child(3){background:var(--c3)}.d2 .stripes i:nth-child(4){background:var(--c4)}
+.d2 h1{font-size:clamp(2.6rem,13vw,6rem);line-height:.98;letter-spacing:-.02em;font-weight:900}
+.d2 h1 span{display:block}.d2 h1 span:nth-child(1){color:var(--c1)}.d2 h1 span:nth-child(3){color:var(--c4)}
+.d2 .btn{font-size:1.15rem;padding:.9rem 1.4rem}
+.d2 .band{margin:2rem -1rem 0;padding:1.6rem 1rem;border-top:.5rem solid var(--c3);background:rgba(127,127,127,.08)}
+.d2 .band:nth-of-type(2){border-color:var(--c2)}.d2 .band:nth-of-type(3){border-color:var(--c4)}.d2 .band:nth-of-type(4){border-color:var(--c1)}
+.d2 .band h2{margin-top:0;font-size:1.8rem}
+.d2 .big{font-size:3rem;color:var(--c2)}
+@media (prefers-color-scheme:light){.d2 .big{color:#7a5a00}}
+.d2 .nums li{padding:.8rem 0;border-top:1px solid var(--line)}
+.d2 .top .name,.d2 .mark{display:none}
+.d2 .stripes{margin-top:0}
